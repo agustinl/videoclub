@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Videoclub</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📼</text></svg>">
+
+		<script
+			src="https://unpkg.com/htmx.org@1.9.6"
+			integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
+		<script src="https://cdn.tailwindcss.com"></script>
+
+		<style>
+			.htmx-indicator {
+				display: none;
+			}
+			.htmx-request .htmx-indicator {
+				display: flex;
+			}
+			.htmx-request.htmx-indicator {
+				display: flex;
+			}
+
+			.fadeOut {
+				animation: fade-out 2s ease-out forwards;
+			}
+
+			@keyframes fade-out {
+				100% {
+					display:none;
+				}
+			}
+		</style>
+	</head>
+	<body class="p-6">
+		<header class="container mx-auto max-w-screen-sm mb-6 flex flex-col gap-2">
+			📼
+			<h1 class="text-xl font-semibold">Videoclub</h1>
+			<div class="flex justify-between items-center flex-wrap gap-4">
+				<p class="text-sm text-gray-400">
+					Created with
+					<a
+						href="https://htmx.org/"
+						class="underline hover:text-pink-400"
+						target="_blank"
+						rel="noopener noreferrer"
+						>htmx</a
+					>
+					+
+					<a
+						href="https://tailwindcss.com/"
+						class="underline hover:text-pink-400"
+						target="_blank"
+						rel="noopener noreferrer"
+						>tailwindcss</a
+					>
+					+
+					<a
+						href="https://flask.palletsprojects.com/en/3.0.x/"
+						class="underline hover:text-pink-400"
+						target="_blank"
+						rel="noopener noreferrer"
+						>flask</a
+					>
+					+
+					<a
+						href="https://www.omdbapi.com/"
+						class="underline hover:text-pink-400"
+						target="_blank"
+						rel="noopener noreferrer"
+						>OMDb API</a
+					>
+				</p>
+				<p class="text-sm text-gray-400">
+					<a
+						href=""
+						class="underline hover:text-pink-400"
+						target="_blank"
+						rel="noopener noreferrer"
+						>code</a
+					>
+				</p>
+			</div>
+		</header>
+
+		<div class="container mx-auto max-w-screen-sm mb-6 flex flex-col gap-2 rounded-md border border-gray-200 p-4">
+			<label for="search_input" class="text-sm font-semibold">Add new serie</label>
+			<input
+				type="text"
+				placeholder="Enter series name"
+				id="search_input"
+				name="search_input"
+				hx-post="/search"
+				hx-trigger="keyup changed delay:500ms"
+				hx-indicator="#indicator"
+				hx-swap="innerHTML"
+				hx-target="#response"
+				class="rounded-md border border-zinc-100 px-2 py-2 text-sm hover:border-black"
+			/>
+		</div>
+
+		<div id="indicator" class="htmx-indicator justify-center mb-4">
+			<div
+				class="border-gray-300 h-6 w-6 animate-spin rounded-full border-2 border-t-gray-600"
+			></div>
+		</div>
+
+		<div id="response" class="container mx-auto max-w-screen-sm"></div>
+
+		<section
+			hx-get="/series"
+			hx-trigger="load, newSerieAdded from:body"
+			hx-swap="innerHTML"
+			class="container mx-auto max-w-screen-sm"
+			hx-indicator="#indicator"
+			id="list"
+		></section>
+
+		
+		<footer>
+			<p class="text-sm text-gray-400 text-center">202?</p>
+		</footer>
+	</body>
+</html>
