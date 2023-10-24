@@ -4,8 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Videoclub</title>
-		<meta name="description" content="Series tracker created with htmx + tailwindcss + flask + OMDb API">
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📼</text></svg>">
+		<meta
+			name="description"
+			content="Series tracker created with htmx + tailwindcss + flask + OMDb API"
+		/>
+		<link
+			rel="icon"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📼</text></svg>"
+		/>
 
 		<script
 			src="https://unpkg.com/htmx.org@1.9.6"
@@ -32,7 +38,7 @@
 
 			@keyframes fade-out {
 				100% {
-					display:none;
+					display: none;
 				}
 			}
 		</style>
@@ -88,7 +94,9 @@
 			</div>
 		</header>
 
-		<div class="container mx-auto max-w-screen-sm mb-6 flex flex-col gap-2 rounded-md border border-gray-200 p-4">
+		<div
+			class="container mx-auto max-w-screen-sm mb-6 flex flex-col gap-2 rounded-md border border-gray-200 p-4"
+		>
 			<label for="search_input" class="text-sm font-semibold">Add new serie</label>
 			<input
 				type="text"
@@ -121,8 +129,16 @@
 			id="list"
 		></section>
 
-		
 		<footer>
+			<a
+				href="https://htmx.org/"
+				class="underline hover:text-pink-400"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<img src="https://htmx.org/img/createdwith.jpeg" style="max-height: 60px;
+				margin: 20px auto" />
+			</a>
 			<p class="text-sm text-gray-400 text-center">202?</p>
 		</footer>
 	</body>

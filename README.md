@@ -35,3 +35,13 @@ Created with
 - Run `pip install -r requirements.txt`.
 - Run `flask --app app.py --debug run`.
 
+<a
+				href="https://htmx.org/"
+				class="underline hover:text-pink-400"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<img src="https://htmx.org/img/createdwith.jpeg" style="max-height: 60px;
+				margin: 20px auto" >
+			</a>
+
